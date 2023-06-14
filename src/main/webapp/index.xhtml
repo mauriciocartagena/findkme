@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+    </h:head>
+
+    <h:body>
+        <style>
+            .flex-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .flex {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+        <div class="flex-container">
+            <p:panelGrid columns="1" class="flex">
+                <h:form>
+                    <p:growl id="messages" showDetail="true"/>
+
+                    <p:fileUpload 
+                        mode="advanced"
+                        multiple="false"
+                        update="messages files"
+                        listener="#{FindkMeController.handleFileUpload}"/>
+                </h:form>
+            </p:panelGrid>
+        </div>
+        <br/>
+        <h:form id="files">
+            <p:panelGrid columns="2"  class="flex-container"  >
+                <p:outputLabel  value="Main"/>
+                <p:outputLabel  value="Second"/>
+                <p:selectOneMenu id="option" value="#{FindkMeController.selectedFileNameMain}"  >
+                    <f:selectItem itemLabel="Select main" itemValue=""/>
+                    <f:selectItems value="#{FindkMeController.fileNames}" var="main" itemValue="#{main}" />
+                </p:selectOneMenu>
+
+                <p:selectOneMenu id="second" value="#{FindkMeController.selectedFileNameCompare}">
+                    <f:selectItem itemLabel="Select main" itemValue=""/>
+                    <f:selectItems value="#{FindkMeController.fileNames}" />
+                </p:selectOneMenu>
+            </p:panelGrid>
+
+            <div class="flex-container" style="padding-top: 10px">
+                <p:commandButton value="Compare"  actionListener="#{FindkMeController.compare()}" ajax="false">
+                    <p:fileDownload value="#{FindkMeController.download}" />
+
+                </p:commandButton>
+
+
+            </div>  
+        </h:form>
+
+
+
+    </h:body>
+
+</html>
