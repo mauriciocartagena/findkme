@@ -27,32 +27,56 @@
                     <p:fileUpload 
                         mode="advanced"
                         multiple="false"
-                        update="messages files"
+                        update="messages files saveData saveDataOfExcel"
                         listener="#{FindkMeController.handleFileUpload}"/>
                 </h:form>
             </p:panelGrid>
         </div>
+
+
         <br/>
-        <h:form id="files">
-            <p:panelGrid columns="2"  class="flex-container"  >
+        <h:form id="saveData">
+            <p:panelGrid columns="1"  class="flex-container"  >
                 <p:outputLabel  value="Main"/>
-                <p:outputLabel  value="Second"/>
                 <p:selectOneMenu id="option" value="#{FindkMeController.selectedFileNameMain}"  >
                     <f:selectItem itemLabel="Select main" itemValue=""/>
                     <f:selectItems value="#{FindkMeController.fileNames}" var="main" itemValue="#{main}" />
                 </p:selectOneMenu>
+            </p:panelGrid>
+            <div class="flex-container" style="padding-top: 10px">
+                <p:commandButton value="save Data" style="margin-right: 5px"  actionListener="#{FindkMeController.saveData()}" ajax="false"></p:commandButton>
+                <p:commandButton value="fill values to original file"  actionListener="#{FindkMeController.fillValuesToOriginalFile()}" ajax="false"></p:commandButton>
+            </div>  
 
-                <p:selectOneMenu id="second" value="#{FindkMeController.selectedFileNameCompare}">
-                    <f:selectItem itemLabel="Select main" itemValue=""/>
-                    <f:selectItems value="#{FindkMeController.fileNames}" />
+        </h:form>
+        <br/>
+        <h:form id="saveDataOfExcel">
+            <p:panelGrid columns="1"  class="flex-container"  >
+                <p:outputLabel  value="Second"/>
+                <p:selectOneMenu id="option" value="#{FindkMeController.selectedFileNameCompare}"  >
+                    <f:selectItem itemLabel="Select second" itemValue=""/>
+                    <f:selectItems value="#{FindkMeController.fileNames}" var="main" itemValue="#{main}" />
                 </p:selectOneMenu>
             </p:panelGrid>
-
             <div class="flex-container" style="padding-top: 10px">
-                <p:commandButton value="Compare"  actionListener="#{FindkMeController.compare()}" ajax="false">
-                    <p:fileDownload value="#{FindkMeController.download}" />
+                <p:commandButton value="save data second" style="margin-right: 5px"  actionListener="#{FindkMeController.saveDataOfCompare()}" ajax="false"></p:commandButton>
+            </div>  
+        </h:form>
 
+        <h:form id="files">
+            <div class="flex-container" style="padding-top: 10px">
+                <p:commandButton value="Compare true" style="margin-right: 5px"  actionListener="#{FindkMeController.compare()}" ajax="false">
+                    <p:fileDownload value="#{FindkMeController.download}" />
                 </p:commandButton>
+
+                <p:commandButton value="Compare false" style="margin-right: 5px" actionListener="#{FindkMeController.compareFalse()}" ajax="false">
+                    <p:fileDownload value="#{FindkMeController.download}" />
+                </p:commandButton>
+
+                <p:commandButton value="get not Equals" style="margin-right: 5px"  actionListener="#{FindkMeController.getAllValuesThatNotMatch()}" ajax="false">
+                    <p:fileDownload value="#{FindkMeController.download}" />
+                </p:commandButton>
+
 
 
             </div>  

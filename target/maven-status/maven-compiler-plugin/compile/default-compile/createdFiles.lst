@@ -1,3 +1,7 @@
-com/findkme/controllers/FindkMeController$1.class
 com/findkme/models/CodePair.class
+com/findkme/facades/AbstractFacade.class
 com/findkme/controllers/FindkMeController.class
+com/findkme/facades/AssetsCompareFacade.class
+com/findkme/entities/AssetsCompare.class
+com/findkme/facades/AssetsFacade.class
+com/findkme/entities/Assets.class

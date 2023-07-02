@@ -1,2 +1,7 @@
+/Applications/MAMP/htdocs/findkme/src/main/java/com/findkme/facades/AssetsCompareFacade.java
 /Applications/MAMP/htdocs/findkme/src/main/java/com/findkme/models/CodePair.java
+/Applications/MAMP/htdocs/findkme/src/main/java/com/findkme/facades/AssetsFacade.java
+/Applications/MAMP/htdocs/findkme/src/main/java/com/findkme/entities/AssetsCompare.java
 /Applications/MAMP/htdocs/findkme/src/main/java/com/findkme/controllers/FindkMeController.java
+/Applications/MAMP/htdocs/findkme/src/main/java/com/findkme/entities/Assets.java
+/Applications/MAMP/htdocs/findkme/src/main/java/com/findkme/facades/AbstractFacade.java
